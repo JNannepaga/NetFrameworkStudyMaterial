@@ -1,0 +1,15 @@
+﻿TRUNCATE TABLE MENUITEM
+
+SELECT * from MENUITEM
+SELECT * from [Order]
+SELECT * from Customer
+
+USE EF_FAPI_One_Many_Mapping EF_DAA_One_Many_Mapping
+GO
+
+ALTER DATABASE EF_FAPI_Many_Many_Mapping
+SET SINGLE_USER 
+WITH ROLLBACK IMMEDIATE
+GO
+DROP DATABASE EF_FAPI_Many_Many_Mapping
+GO

@@ -1,0 +1,40 @@
+﻿@using Microsoft.Owin.Security
+@using IdentityOwinIntegrationWithoutEF.ViewModel
+@model ExternalLoginVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ExternalLoginsPartial</title>
+</head>
+<body>
+    <div>
+        @{
+            List<AuthenticationDescription> externalAutentications =
+                Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes().ToList();
+
+            if (externalAutentications.Count == 0)
+            {
+                <div>No External Logins are configured</div>
+            }
+            else
+            {
+                using (Html.BeginForm("ExternalLogin", "Account", new { returnUrl = Model.ReturnURL }, FormMethod.Post))
+                {
+                    foreach (AuthenticationDescription authDesc in externalAutentications)
+                    {
+                        <button type="submit" id="@authDesc.AuthenticationType" name="provider" value="@authDesc.AuthenticationType" title="Login via @authDesc.Caption account">@authDesc.AuthenticationType</button>
+                    }
+                }
+
+            }
+
+        }
+    </div>
+</body>
+</html>

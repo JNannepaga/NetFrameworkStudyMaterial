@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B7524785-707F-4EA4-95E0-9511499FD7C6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AOPFramework</RootNamespace>
+    <AssemblyName>AOPFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'INT1|AnyCPU'">
+    <OutputPath>bin\INT1\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.5.11.1\lib\net47\Unity.Interception.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomInterceptors\Client.cs" />
+    <Compile Include="CustomInterceptors\IInterceptor.cs" />
+    <Compile Include="CustomInterceptors\InterceptingHandler.cs" />
+    <Compile Include="CustomInterceptors\InterceptingPipeline.cs" />
+    <Compile Include="CustomInterceptors\Interceptors\AuthInterceptor.cs" />
+    <Compile Include="CustomInterceptors\Interceptors\LoggingInterceptor.cs" />
+    <Compile Include="CustomInterceptors\ServiceHandler.cs" />
+    <Compile Include="INotifyChange\Client.cs" />
+    <Compile Include="INotifyChange\Person.cs" />
+    <Compile Include="InterceptionDemo\StandloneInterception\client\Client1.cs" />
+    <Compile Include="InterceptionDemo\StandloneInterception\client\Client2.cs" />
+    <Compile Include="InterceptionDemo\StandloneInterception\client\StandaloneInterceptionImplementor.cs" />
+    <Compile Include="InterceptionDemo\StandloneInterception\StandaloneAOPFactory.cs" />
+    <Compile Include="MyException.cs" />
+    <Compile Include="PolicyInjectionDemo\BMW.cs" />
+    <Compile Include="PolicyInjectionDemo\DriverHandler.cs" />
+    <Compile Include="PolicyInjectionDemo\ICar.cs" />
+    <Compile Include="PolicyInjectionDemo\InterceptionImplemention.cs" />
+    <Compile Include="PolicyInjectionDemo\PolicyDesign\Behaviours\LoggerInterceptionBehaviour.cs" />
+    <Compile Include="PolicyInjectionDemo\PolicyDesign\CallHandlers\GreetingInterceptorHandler.cs" />
+    <Compile Include="PolicyInjectionDemo\PolicyDesign\MatchingRule\GreetingMatchingRule.cs" />
+    <Compile Include="PolicyInjectionDemo\PolicyDesign\Policies\InjectionPolicyConfig.cs" />
+    <Compile Include="PolicyInjectionDemo\PolicyDesign\Policies\PolicyParams.cs" />
+    <Compile Include="PolicyInjectionDemo\StandaloneContainer\Client1.cs" />
+    <Compile Include="PolicyInjectionDemo\StandaloneContainer\StandaloneAOPFactory.cs" />
+    <Compile Include="PolicyInjectionDemo\Suziki.cs" />
+    <Compile Include="PolicyInjectionDemo\UnityContainer\Client1.cs" />
+    <Compile Include="PolicyInjectionDemo\UnityContainer\UnityFactory.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\AddCustomerDetailsHandler.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\AddUserDetailsHandler.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\AdminService.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\BasicDynamicProxy\AuthProxy.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\Decorator\DecoratorFactory.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\Decorator\DecoratorImplementor.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\Decorator\UserServiceLogger.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\BasicDynamicProxy\LoggerProxy.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\BasicDynamicProxy\DynamicProxyFactory.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\BasicDynamicProxy\DynamicProxyImplementor.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\IUserService.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\IAdminService.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\Decorator\AdminServiceLogger.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\User.cs" />
+    <Compile Include="RealProxy\CustomerServiceMyArch\UserService.cs" />
+    <Compile Include="RealProxy\CustomerServiceRepoPattern\Customer.cs" />
+    <Compile Include="RealProxy\CustomerServiceRepoPattern\DynamicProxy\DynamicProxy.cs" />
+    <Compile Include="RealProxy\CustomerServiceRepoPattern\DynamicProxy\DynamicProxyImplementor.cs" />
+    <Compile Include="RealProxy\CustomerServiceRepoPattern\IRepository.cs" />
+    <Compile Include="RealProxy\CustomerServiceRepoPattern\Decorator\LoggerDecorator.cs" />
+    <Compile Include="RealProxy\CustomerServiceRepoPattern\Decorator\DecoratorImplementor.cs" />
+    <Compile Include="RealProxy\CustomerServiceRepoPattern\Repository.cs" />
+    <Compile Include="StartUp.cs" />
+    <Compile Include="InterceptionDemo\Behaviours\AuditService.cs" />
+    <Compile Include="InterceptionDemo\Behaviours\AuthInterceptionBehaviour.cs" />
+    <Compile Include="InterceptionDemo\BMW.cs" />
+    <Compile Include="InterceptionDemo\UnityContainerInterception\client\InterceptionImplemention.cs" />
+    <Compile Include="InterceptionDemo\UnityContainerInterception\client\Client1.cs" />
+    <Compile Include="InterceptionDemo\UnityContainerInterception\client\Client2.cs" />
+    <Compile Include="InterceptionDemo\DriverHandler.cs" />
+    <Compile Include="InterceptionDemo\ICar.cs" />
+    <Compile Include="InterceptionDemo\Behaviours\IAuditService.cs" />
+    <Compile Include="InterceptionDemo\Behaviours\LoggerInterceptionBehaviour.cs" />
+    <Compile Include="InterceptionDemo\Suziki.cs" />
+    <Compile Include="InterceptionDemo\UnityContainerInterception\InterceptionFactory\UnityFactory.cs" />
+    <Compile Include="Type1_TransparentProxy\Behaviours\AuditService.cs" />
+    <Compile Include="Type1_TransparentProxy\Behaviours\AuthInterceptionBehaviour.cs" />
+    <Compile Include="Type1_TransparentProxy\Behaviours\LoggerInterceptionBehaviour.cs" />
+    <Compile Include="Type1_TransparentProxy\BMW.cs" />
+    <Compile Include="Type1_TransparentProxy\StandaloneContainer\Client1.cs" />
+    <Compile Include="Type1_TransparentProxy\StandaloneContainer\StandaloneAOPFactory.cs" />
+    <Compile Include="Type1_TransparentProxy\UnityContainer\Client1.cs" />
+    <Compile Include="Type1_TransparentProxy\DriverHandler.cs" />
+    <Compile Include="Type1_TransparentProxy\InterceptionImplemention.cs" />
+    <Compile Include="Type1_TransparentProxy\UnityContainer\UnityFactory.cs" />
+    <Compile Include="Type2_InterfaceInterception\Behaviours\AuditService.cs" />
+    <Compile Include="Type2_InterfaceInterception\Behaviours\AuthInterceptionBehaviour.cs" />
+    <Compile Include="Type2_InterfaceInterception\Behaviours\LoggerInterceptionBehaviour.cs" />
+    <Compile Include="Type2_InterfaceInterception\BMW.cs" />
+    <Compile Include="Type2_InterfaceInterception\DriverHandler.cs" />
+    <Compile Include="Type2_InterfaceInterception\ICar.cs" />
+    <Compile Include="Type2_InterfaceInterception\InterceptionImplemention.cs" />
+    <Compile Include="Type2_InterfaceInterception\StandaloneContainer\Client1.cs" />
+    <Compile Include="Type2_InterfaceInterception\StandaloneContainer\StandaloneAOPFactory.cs" />
+    <Compile Include="Type2_InterfaceInterception\UnityContainer\Client1.cs" />
+    <Compile Include="Type2_InterfaceInterception\UnityContainer\UnityFactory.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\Behaviours\AuditService.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\Behaviours\AuthInterceptionBehaviour.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\Behaviours\LoggerInterceptionBehaviour.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\BMW.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\DriverHandler.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\Car.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\InterceptionImplemention.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\StandaloneContainer\Client1.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\StandaloneContainer\StandaloneAOPFactory.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\UnityContainer\Client1.cs" />
+    <Compile Include="Type3_VirtualMethodInterception\UnityContainer\UnityFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

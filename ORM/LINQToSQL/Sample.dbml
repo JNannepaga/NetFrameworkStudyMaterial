@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LINQToSQLDB" Class="SampleDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=Desktop-A16AJK2\SQLEXPRESS;Initial Catalog=LINQToSQLDB;Integrated Security=True;Pooling=False" SettingsObjectName="LINQToSQL.Properties.Settings" SettingsPropertyName="LINQToSQLDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Student" Member="Students">
+    <Type Name="Student">
+      <Column Name="StudentId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId1">
+      <Argument Parameter="studentId" Member="StudentId" />
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="gender" Member="Gender" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId2">
+      <Argument Parameter="studentId" Member="StudentId" />
+      <Argument Parameter="name" Member="Name" />
+      <Argument Parameter="gender" Member="Gender" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId3">
+      <Argument Parameter="studentId" Member="StudentId" />
+    </DeleteFunction>
+  </Table>
+  <Function Name="dbo.SP_GetAllStudents" Method="SP_GetAllStudents">
+    <ElementType Name="SP_GetAllStudentsResult">
+      <Column Name="StudentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Id="FunctionId3" Name="dbo.SP_DeleteStudent" Method="SP_DeleteStudent">
+    <Parameter Name="studentId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId1" Name="dbo.SP_InsertStudent" Method="SP_InsertStudent">
+    <Parameter Name="studentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="gender" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.SP_UpdateStudent" Method="SP_UpdateStudent">
+    <Parameter Name="studentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="gender" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

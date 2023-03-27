@@ -1,0 +1,31 @@
+﻿@using IdentityOwinIntegrationWithoutEF.ViewModel
+@model ExternalLoginConfirmationViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ExternalLoginConfirmation</title>
+</head>
+<body>
+    <p class="text-info">
+        You've successfully authenticated with <strong>@ViewBag.LoginProvider</strong>.
+        Please enter a user name for this site below and click the Register button to finish
+        logging in.
+    </p>
+    <div>
+        @Html.ValidationSummary(true);
+        @using (Html.BeginForm("ExternalLoginConfirmation", "Account", FormMethod.Post))
+        {
+            @Html.LabelFor(i => i.Email);
+            @Html.TextBoxFor(i => i.Email);
+            @Html.ValidationMessageFor(i => i.Email);
+            <input type="submit" value="Register" />
+        }
+    </div>
+</body>
+</html>

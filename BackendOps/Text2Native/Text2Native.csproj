@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding="utf-8" ?>
+<Project ToolsVersion = "15.0">
+<PropertyGroup>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+ </PropertyGroup>
+ 
+<ItemGroup>
+	<Reference Include="System" />
+</ItemGroup>
+<ItemGroup>
+	<Compile Include="Program.cs" />
+	<Compile Include="Properties\AssemblyInformation.cs" />
+</ItemGroup>
+
+<ItemGroup>
+	<None Include="App.config" />
+</ItemGroup>
+
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
